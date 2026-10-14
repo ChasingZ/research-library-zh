@@ -1,0 +1,24 @@
+name: Skill checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  helpers:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run helper regression tests
+        run: python scripts/test_helpers.py
+      - name: Check aligned translation example
+        run: python scripts/audit_units.py examples/units.jsonl --report audit.json

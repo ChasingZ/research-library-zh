@@ -1,0 +1,4 @@
+interface:
+  display_name: "科研资料搜集与中文翻译"
+  short_description: "搜集科研资料，先通读总结与整理术语，再翻译核心论文并校核中文 PDF"
+  default_prompt: "使用 $research-library-zh 搜集核心论文与技术文档，先通读总结并建立术语表，再按优先级翻译和校核，交付阅读总结与中文 PDF。"
